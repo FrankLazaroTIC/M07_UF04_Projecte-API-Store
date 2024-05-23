@@ -4,6 +4,7 @@ class Cart(models.Model):
     client = models.ForeignKey('client.Client', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    products = models.ManyToManyField('cataleg.Product', blank=True)
 
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
